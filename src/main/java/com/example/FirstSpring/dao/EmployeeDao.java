@@ -8,7 +8,7 @@ public interface EmployeeDao {
 
     int save(Employee employee);
 
-    int update(Employee employee, int id);
+    int updates(Employee employee, int id);
 
     int delete(int id);
 

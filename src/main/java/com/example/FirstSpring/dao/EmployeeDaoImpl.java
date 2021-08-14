@@ -16,17 +16,19 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public int save(Employee employee) {
-        return 0;
+        return jdbcTemplate.update("INSERT INTO tbl_employees (name, email, department) VALUES (?, ?, ?)",new Object[] {employee.getName(),employee.getEmail(),employee.getDepartment()});
     }
 
     @Override
-    public int update(Employee employee, int id) {
-        return 0;
+    public int updates(Employee employee, int id) {
+
+        return jdbcTemplate.update("UPDATE tbl_employees SET name=?, email=?, department=? WHERE id=?",new Object[] {employee.getName(),employee.getEmail(),employee.getDepartment(),id});
     }
 
     @Override
     public int delete(int id) {
-        return 0;
+
+        return jdbcTemplate.update("DELETE FROM tbl_employees WHERE id=?",id);
     }
 
     @Override
